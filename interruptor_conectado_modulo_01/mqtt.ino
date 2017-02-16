@@ -9,7 +9,7 @@ void mqtt_loop(){
 void reconnect() {
   // Loop until we're reconnected
   while (!client.connected()) {
-    Serial.print("Attempting MQTT connection...");
+    //Serial.print("Attempting MQTT connection...");
     // Attempt to connect
     if (client.connect(client_id, mqtt_username, mqtt_password)) {
       Serial.println("connected");

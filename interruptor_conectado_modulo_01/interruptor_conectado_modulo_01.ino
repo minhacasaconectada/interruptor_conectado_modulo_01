@@ -54,7 +54,7 @@ long sleepTemp = 60000; // 1 minuto
 const byte pinPir = 16;
 byte pirOldState = LOW;
 //const int sleepPir = 60;
-//long lastTimerPir = 0;
+long lastTimerPir = 0;
 
 //// Atuadores Relay ////
 const byte pinRele1 = 14;
@@ -72,6 +72,11 @@ byte botao1OldState = HIGH;
 byte botao2OldState = HIGH;
 byte botao3OldState = HIGH;
 byte botao4OldState = HIGH;
+
+boolean botao1Cont = false;
+boolean botao2Cont = false;
+boolean botao3Cont = false;
+boolean botao4Cont = false;
 
 long debounceTimeBotao1 = 0;
 long debounceTimeBotao2 = 0;

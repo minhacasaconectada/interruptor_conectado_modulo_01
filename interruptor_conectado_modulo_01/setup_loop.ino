@@ -1,23 +1,18 @@
 void setup() {
-  Serial.begin(115200);
-  Serial.println("Booting");
+ // Serial.begin(115200);
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   while (WiFi.waitForConnectResult() != WL_CONNECTED) {
-    Serial.println("Connection Failed! Rebooting...");
     delay(5000);
     ESP.restart();
   }
 
   // Port defaults to 8266
   // ArduinoOTA.setPort(8266);
-
   // Hostname defaults to esp8266-[ChipID]
   ArduinoOTA.setHostname("nodemcu-icm01");
-
   // No authentication by default
   ArduinoOTA.setPassword(senha_ota);
-
   ArduinoOTA.onStart([]() {
     Serial.println("Start");
   });
@@ -36,16 +31,16 @@ void setup() {
     else if (error == OTA_END_ERROR) Serial.println("End Failed");
   });
   ArduinoOTA.begin();
-  Serial.println("Ready");
-  Serial.print("IP address: ");
-  Serial.println(WiFi.localIP());
+  //Serial.println("Ready");
+  //Serial.print("IP address: ");
+  //Serial.println(WiFi.localIP());
   
   //// Sensor Temperatura ////
   pinMode(pinTemp, INPUT);
 
 
     //// PIR ////
-  pinMode(pinPir, INPUT);
+  pinMode(pinPir, INPUT_PULLUP);
 
   //// Atuadores Relay ////
   pinMode(pinRele1, OUTPUT);
