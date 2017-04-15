@@ -57,7 +57,8 @@ void setup() {
   pinMode(pinBotao2, INPUT_PULLUP);
   pinMode(pinBotao3, INPUT_PULLUP);
   pinMode(pinBotao4, INPUT_PULLUP);
-  
+
+    
   //// MQTT ////
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);

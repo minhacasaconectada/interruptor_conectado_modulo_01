@@ -1,7 +1,10 @@
+
+
 /*
  * Jonathas Eide Fujii
  * jonathasfujii@gmail.com
- * 01/01/2017
+ * Criado: 01/01/2017
+ * Atualizado: 09/04/2017
  * 
  * Arduino IDE v1.8.0
  */
@@ -14,6 +17,7 @@
 #include <PubSubClient.h> // http://pubsubclient.knolleary.net/
 #include <OneWire.h>
 #include <DallasTemperature.h>
+
 
 const byte pinLedEsp = 2;
 
@@ -63,20 +67,27 @@ const byte pinRele3 = 13;
 const byte pinRele4 = 3;
 
 //// Botão ////
+const int debouncerTime = 200;
+
 const byte pinBotao1 = 5;
 const byte pinBotao2 = 4;
 const byte pinBotao3 = 0;
 const byte pinBotao4 = 2;
 
+byte readingBotao1 = HIGH;
+byte readingBotao2 = HIGH;
+byte readingBotao3 = HIGH;
+byte readingBotao4 = HIGH;
+
+byte botao1State = HIGH;
+byte botao2State = HIGH;
+byte botao3State = HIGH;
+byte botao4State = HIGH;
+
 byte botao1OldState = HIGH;
 byte botao2OldState = HIGH;
 byte botao3OldState = HIGH;
 byte botao4OldState = HIGH;
-
-boolean botao1Cont = false;
-boolean botao2Cont = false;
-boolean botao3Cont = false;
-boolean botao4Cont = false;
 
 long debounceTimeBotao1 = 0;
 long debounceTimeBotao2 = 0;
